@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from 'react';
-import StateContext from "../StateContext";
 
 type formData = [
   {
@@ -11,7 +10,6 @@ type formData = [
 ]
 
 const UserForm = () => {
-  const appState = useContext(StateContext);
 
   const data:formData = [
     {
@@ -55,7 +53,10 @@ const UserForm = () => {
         </select>
         <button>Submit</button>
       </form>
-      <p>The count is {appState.count}!</p>
+      <h3>List of Dogs</h3>
+      <ul>
+        {newData.map((item) => <li>{item.name}, {item.age}, {item.breed}</li>)}
+      </ul>
     </div>
   )
 }
